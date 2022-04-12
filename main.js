@@ -82,7 +82,7 @@ function printAllPost() {
     <div class="post__footer">
         <div class="likes js-likes">
             <div class="likes__cta">
-                <a class="like-button js-like-button" href="#" data-post id="button${singlePost.id}">
+                <a class="like-button js-like-button" href="#" data-postid="${singlePost.id}">
                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                     <span class="like-button__label">Mi Piace</span>
                 </a>
@@ -94,37 +94,65 @@ function printAllPost() {
     </div> 
         `
         container.append(post)
-
-
-
     })
 }
 printAllPost();
 
 
 
+const likeButtons = document.querySelectorAll('[data-postid]');
+console.log(likeButtons)
+for (let i = 0; i < likeButtons.length; i++) {
+    let bottoni = likeButtons.addEventL
 
-function pressLike() {
 
-    for (let i = 0; i < posts.length; i++) {
-
-        let button1 = document.getElementById('button1')
-        button1.addEventListener('click', colora)
-
-        function colora() {
-            button1.classList.add('like-button--liked')
-        }
-        console.log('ciao')
-        console.log(button1)
-    }
 }
 
-pressLike()
 
 
-let counter1 = document.getElementById('like-counter-1')
-button1.addEventListener('click', incrementa)
 
-function incrementa() {
-    counter1.innerHTML = `${posts[0].likes+1}`
+
+
+
+
+
+function press() {
+    let counter = document.getElementById("like-counter");
+    counter.innerHTML = `${posts[0].likes+1}`
 }
+
+
+
+
+
+// function pressLike() {
+//     for (let i = 0; i < posts.length; i++) {
+
+// // //Funzione per colorare il tasto
+// //         
+
+// // //funzione per incrementare il counter
+// //         button1.addEventListener('click', incrementa)
+// //         
+
+// //         function incrementa() {
+// //          
+// //         }
+// //     }
+// }
+// pressLike()
+
+
+
+// posts.forEach((singleClick) => {}
+
+//         let button1 = document.getElementById('button1');
+//         let counter = ''; counter = document.getElementById("like-counter-1");
+
+//         console.log(counter)
+
+//         button1.addEventListener('click', incrementa)
+
+//         function incrementa() {
+//             counter.innerHTML = `${posts[0].likes+1}`
+//         };
