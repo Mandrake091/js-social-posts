@@ -62,16 +62,19 @@ function printAllPost() {
         const post = document.createElement('div');
         post.setAttribute('class', 'post');
         post.setAttribute('id', `${singlePost.id}`);
-        post.innerHTML =
-            `
+
+
+
+            post.innerHTML =
+                `
         <div class="post__header">
         <div class="post-meta">                    
             <div class="post-meta__icon">
-                <img class="profile-pic" src="${singlePost.author.image}" alt="Phil Mangione">                    
+                <img class="profile-pic" src="${singlePost.author.image}" alt="${singlePost.author.name}">                    
             </div>
             <div class="post-meta__data">
                 <div class="post-meta__author">${singlePost.author.name}</div>
-                <div class="post-meta__time">${singlePost.created}</div>
+                <div class="post-meta__time">${new Date(singlePost.created).toLocaleDateString()}</div>
             </div>                    
         </div>
     </div>
@@ -93,31 +96,27 @@ function printAllPost() {
         </div> 
     </div> 
         `
-        container.append(post)
-    })
+            container.append(post)
+        })
 }
 printAllPost();
 
 
 
+
+let likedPost = [];
 const likeButtons = document.querySelectorAll('[data-postid]');
-//const likeButtons = document.getElementsByClassName('like-button');
+
 
 likeButtons.forEach((button) => {
     button.addEventListener('click', function () {
         button.classList.add('like-button--liked');
-
         let postId = button.getAttribute('data-postid');
-
-        console.log(postId)
-
         const idCounter = document.getElementById(`like-counter-${postId}`);
-
+        likedPost.push(postId)
         idCounter.innerHTML = `${posts[postId - 1].likes+1}`
-
-        console.log(idCounter)
+        console.log(likedPost)
     })
-    console.log(likeButtons)
 })
 
 
