@@ -101,14 +101,25 @@ printAllPost();
 
 
 const likeButtons = document.querySelectorAll('[data-postid]');
+//const likeButtons = document.getElementsByClassName('like-button');
 
-likeButtons.forEach((button)=>{
-    button.addEventListener('click', press)
+likeButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+        button.classList.add('like-button--liked');
 
-    function press(){
+        let postId = button.getAttribute('data-postid');
 
-    }
+        console.log(postId)
+
+        const idCounter = document.getElementById(`like-counter-${postId}`);
+
+        idCounter.innerHTML = `${posts[postId - 1].likes+1}`
+
+        console.log(idCounter)
+    })
+    console.log(likeButtons)
 })
+
 
 
 
@@ -123,7 +134,7 @@ likeButtons.forEach((button)=>{
 
 function press() {
     let counter = document.getElementById("like-counter");
-    counter.innerHTML = `${posts[0].likes+1}`
+    counter.innerHTML = `${posts[0].likes++}`
 }
 
 
@@ -152,7 +163,8 @@ function press() {
 // posts.forEach((singleClick) => {}
 
 //         let button1 = document.getElementById('button1');
-//         let counter = ''; counter = document.getElementById("like-counter-1");
+//         let counter = '';
+counter = document.getElementById("like-counter-1");
 
 //         console.log(counter)
 
