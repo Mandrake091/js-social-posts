@@ -101,12 +101,17 @@ printAllPost();
 
 
 const likeButtons = document.querySelectorAll('[data-postid]');
-console.log(likeButtons)
-for (let i = 0; i < likeButtons.length; i++) {
-    let bottoni = likeButtons.addEventL
+
+likeButtons.forEach((button)=>{
+    button.addEventListener('click', press)
+
+    function press(){
+
+    }
+})
 
 
-}
+
 
 
 
